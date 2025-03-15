@@ -10,7 +10,9 @@
     "server": "cd server && npm run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "install-all": "npm install && cd client && npm install --production=false && cd ../server && npm install --production=false",
-    "build": "cd client && npm run build && cd ../server && npm run build && mkdir -p server/dist/public && cp -r client/build/* server/dist/public/",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "build": "npm run build:client && npm run build:server && mkdir -p server/dist/public && cp -r client/build/* server/dist/public/",
     "start:prod": "cd server && node dist/index.js",
     "start": "cd server && node dist/index.js"
   },
