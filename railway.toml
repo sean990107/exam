@@ -1,18 +1,11 @@
 [build]
-command = "npm run install-all && chmod +x ./build.sh && ./build.sh"
-builder = "nixpacks"
-buildTimeout = 1800
+command = "npm run build"
 
 [deploy]
-command = "npm start"
-healthcheck = "/"
-healthcheck_timeout_sec = 100
-release_command = ""
+startCommand = "npm run start"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "never"
 
-[phases.setup]
-nixPkgs = ["nodejs", "npm", "bash"]
-aptPkgs = ["build-essential", "python3"]
-
-[phases.build]
-cmds = ["chmod +x ./build.sh", "./build.sh"]
-dependsOn = ["setup"] 
+[env]
+PORT = "3000" 
