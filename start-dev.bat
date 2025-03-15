@@ -1,0 +1,13 @@
+@echo off
+echo 正在启动考试系统开发环境...
+
+echo 1. 关闭当前运行的服务器进程...
+taskkill /f /im node.exe
+
+echo 2. 进入项目目录...
+cd /d %~dp0
+
+echo 3. 启动开发服务器...
+npm run dev
+
+pause 
