@@ -1,0 +1,29 @@
+{
+  "name": "exam-system",
+  "version": "1.0.0",
+  "description": "卡片式考试系统",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "cd server && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm install && npm run build && cd ../server && npm install && npm run build && mkdir -p server/dist/public && cp -r client/build/* server/dist/public/",
+    "start:prod": "cd server && node dist/index.js",
+    "start": "cd server && node dist/index.js"
+  },
+  "keywords": [
+    "exam",
+    "react",
+    "nodejs",
+    "typescript",
+    "antd"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+} 

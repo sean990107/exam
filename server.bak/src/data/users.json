@@ -1,0 +1,31 @@
+[
+  {
+    "id": "admin",
+    "name": "xyfgs",
+    "password": "123456",
+    "department": "管理部门",
+    "isAdmin": true,
+    "createdAt": 1741683430651
+  },
+  {
+    "id": "user_1741683828273",
+    "name": "晁森豪",
+    "department": "综合管理部",
+    "isAdmin": false,
+    "createdAt": 1741683828273
+  },
+  {
+    "id": "user_1741829949177",
+    "name": "晁森豪",
+    "department": "项目拓展部",
+    "isAdmin": false,
+    "createdAt": 1741829949177
+  },
+  {
+    "id": "user_1741840399330",
+    "name": "李易飞",
+    "department": "运营管理部",
+    "isAdmin": false,
+    "createdAt": 1741840399330
+  }
+]

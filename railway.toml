@@ -1,0 +1,8 @@
+[build]
+command = "npm run install-all && npm run build"
+
+[deploy]
+command = "npm start"
+healthcheck = "/"
+healthcheck_timeout_sec = 100
+release_command = "" 
