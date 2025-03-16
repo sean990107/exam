@@ -479,11 +479,12 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
     <div style={{ 
       maxWidth: '1600px',
       margin: '10px auto', 
-      padding: '10px', 
+      padding: isMobile ? '5px' : '10px', 
       background: 'linear-gradient(to right, #f8f9fa, #e9ecef)',
-      borderRadius: '12px',
+      borderRadius: isMobile ? '8px' : '12px',
       minHeight: 'calc(100vh - 200px)',
-      boxShadow: '0 6px 16px rgba(0, 0, 0, 0.08)'
+      boxShadow: '0 6px 16px rgba(0, 0, 0, 0.08)',
+      width: isMobile ? '98%' : 'auto'
     }}>
       {loading ? (
         <div style={{ textAlign: 'center', padding: '50px' }}>
@@ -493,8 +494,8 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
         <>
           <Card 
             style={{ 
-              marginBottom: '24px', 
-              borderRadius: '12px',
+              marginBottom: isMobile ? '12px' : '24px', 
+              borderRadius: isMobile ? '8px' : '12px',
               boxShadow: '0 6px 16px rgba(0, 0, 0, 0.05)',
               border: 'none'
             }}
@@ -504,13 +505,13 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
               justifyContent: 'space-between', 
               alignItems: 'center',
               flexWrap: 'wrap',
-              gap: '20px'
+              gap: isMobile ? '10px' : '20px'
             }}>
               <div>
-                <Title level={3} style={{ margin: 0, color: '#1a1a2e', fontWeight: 600, fontSize: '26px' }}>
+                <Title level={isMobile ? 4 : 3} style={{ margin: 0, color: '#1a1a2e', fontWeight: 600, fontSize: isMobile ? '20px' : '26px' }}>
                   安全知识测试
                 </Title>
-                <Text style={{ color: '#555', fontSize: '16px', marginTop: '6px', display: 'block' }}>
+                <Text style={{ color: '#555', fontSize: isMobile ? '14px' : '16px', marginTop: '6px', display: 'block' }}>
                   总共 {questions.length} 题，已答 {answeredCount} 题
                 </Text>
               </div>
@@ -518,7 +519,7 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                 <Progress
                   type="circle"
                   percent={Math.round((currentQuestionIndex + 1) / questions.length * 100)}
-                  width={90}
+                  width={isMobile ? 70 : 90}
                   strokeWidth={8}
                   strokeColor={{
                     '0%': '#108ee9',
@@ -526,10 +527,10 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                   }}
                   format={() => (
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                      <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1890ff' }}>
+                      <div style={{ fontSize: isMobile ? '18px' : '24px', fontWeight: 'bold', color: '#1890ff' }}>
                         {currentQuestionIndex + 1}
                       </div>
-                      <div style={{ fontSize: '13px', color: '#666', marginTop: '-2px' }}>
+                      <div style={{ fontSize: isMobile ? '12px' : '13px', color: '#666', marginTop: '-2px' }}>
                         / {questions.length}
                       </div>
                     </div>
@@ -541,7 +542,7 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
 
           <Card 
             style={{ 
-              borderRadius: '12px',
+              borderRadius: isMobile ? '8px' : '12px',
               boxShadow: '0 6px 16px rgba(0, 0, 0, 0.05)',
               border: 'none'
             }}
@@ -553,8 +554,8 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                     key={index}
                     onClick={() => setCurrentQuestionIndex(index)}
                     style={{
-                      width: '36px',
-                      height: '36px',
+                      width: isMobile ? '32px' : '36px',
+                      height: isMobile ? '32px' : '36px',
                       borderRadius: '50%',
                       display: 'flex', 
                       alignItems: 'center',
@@ -564,7 +565,7 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                                       answers[questions[index]?.id] ? '#52c41a' : '#f0f0f0',
                       color: (currentQuestionIndex === index || answers[questions[index]?.id]) ? '#fff' : '#666',
                       fontWeight: currentQuestionIndex === index ? 'bold' : 'normal',
-                      fontSize: '14px',
+                      fontSize: isMobile ? '12px' : '14px',
                       boxShadow: currentQuestionIndex === index ? '0 0 10px rgba(24, 144, 255, 0.5)' : 'none',
                       transition: 'all 0.3s',
                       border: currentQuestionIndex === index ? '2px solid #e6f7ff' : '1px solid transparent'
@@ -580,16 +581,16 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
               <div>
                 <div style={{ 
                   background: 'linear-gradient(145deg, #ffffff, #f8fafc)',
-                  padding: '30px',
-                  borderRadius: '14px',
-                  marginBottom: '24px',
+                  padding: isMobile ? '20px 15px' : '30px',
+                  borderRadius: isMobile ? '12px' : '14px',
+                  marginBottom: isMobile ? '16px' : '24px',
                   boxShadow: '0 3px 15px rgba(0, 0, 0, 0.06)',
                   border: '1px solid #edf2f7',
                 }}>
                   <Title level={4} style={{ 
-                    marginBottom: '24px', 
+                    marginBottom: isMobile ? '16px' : '24px', 
                     color: '#1e293b',
-                    fontSize: '20px',
+                    fontSize: isMobile ? '18px' : '20px',
                     lineHeight: '1.5',
                     fontWeight: 600
                   }}>
@@ -598,23 +599,23 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                       backgroundColor: '#1890ff', 
                       color: 'white', 
                       borderRadius: '50%',
-                      width: '32px', 
-                      height: '32px',
+                      width: isMobile ? '28px' : '32px', 
+                      height: isMobile ? '28px' : '32px',
                       textAlign: 'center',
-                      lineHeight: '32px',
+                      lineHeight: isMobile ? '28px' : '32px',
                       marginRight: '12px',
-                      fontSize: '16px',
+                      fontSize: isMobile ? '14px' : '16px',
                       boxShadow: '0 2px 5px rgba(24, 144, 255, 0.3)'
                     }}>
                       {currentQuestionIndex + 1}
                     </span>
                     {questions[currentQuestionIndex]?.question}
                     <Text style={{ 
-                      fontSize: '14px', 
-                      marginLeft: '12px', 
+                      fontSize: isMobile ? '12px' : '14px', 
+                      marginLeft: isMobile ? '8px' : '12px', 
                       color: '#94a3b8',
                       backgroundColor: '#f1f5f9',
-                      padding: '4px 10px',
+                      padding: isMobile ? '2px 6px' : '4px 10px',
                       borderRadius: '6px',
                       fontWeight: 'normal'
                     }}>
@@ -634,9 +635,10 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                             key={index}
                             value={String.fromCharCode(65 + index)}
                             style={{
-                              display: 'block', 
-                              marginBottom: '20px',
-                              padding: '30px 30px',
+                              display: 'flex', 
+                              alignItems: 'center',
+                              marginBottom: isMobile ? '15px' : '20px',
+                              padding: isMobile ? '20px 15px' : '30px 30px',
                               borderRadius: '10px',
                               border: answers[questions[currentQuestionIndex].id] === String.fromCharCode(65 + index)
                                 ? '3px solid #1890ff'
@@ -660,13 +662,22 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                               color: '#1890ff',
                               width: '36px',
                               display: 'inline-block',
-                              fontSize: '16px',
+                              fontSize: isMobile ? '14px' : '16px',
                               height: '32px',
-                              lineHeight: '32px'
+                              lineHeight: '32px',
+                              verticalAlign: 'middle'
                             }}>
                               {String.fromCharCode(65 + index)}.
                             </span> 
-                            <span style={{ fontSize: '16px', color: '#475569', height: '32px', lineHeight: '32px' }}>{option}</span>
+                            <span style={{ 
+                              fontSize: isMobile ? '14px' : '16px', 
+                              color: '#475569', 
+                              height: '32px', 
+                              lineHeight: '32px', 
+                              verticalAlign: 'middle'
+                            }}>
+                              {option}
+                            </span>
                           </Radio>
                         ))}
                       </Radio.Group>
@@ -681,9 +692,10 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                             key={index}
                             value={String.fromCharCode(65 + index)}
                             style={{ 
-                              display: 'block', 
-                              marginBottom: '20px',
-                              padding: '30px 30px',
+                              display: 'flex', 
+                              alignItems: 'center',
+                              marginBottom: isMobile ? '15px' : '20px',
+                              padding: isMobile ? '20px 15px' : '30px 30px',
                               borderRadius: '10px',
                               border: (answers[questions[currentQuestionIndex].id] as string[] || []).includes(String.fromCharCode(65 + index))
                                 ? '3px solid #52c41a'
@@ -707,13 +719,22 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                               color: '#52c41a',
                               width: '36px',
                               display: 'inline-block',
-                              fontSize: '16px',
+                              fontSize: isMobile ? '14px' : '16px',
                               height: '32px',
-                              lineHeight: '32px'
+                              lineHeight: '32px',
+                              verticalAlign: 'middle'
                             }}>
                               {String.fromCharCode(65 + index)}.
                             </span>
-                            <span style={{ fontSize: '16px', color: '#475569', height: '32px', lineHeight: '32px' }}>{option}</span>
+                            <span style={{ 
+                              fontSize: isMobile ? '14px' : '16px', 
+                              color: '#475569', 
+                              height: '32px', 
+                              lineHeight: '32px', 
+                              verticalAlign: 'middle'
+                            }}>
+                              {option}
+                            </span>
                           </Checkbox>
                         ))}
                       </Checkbox.Group>
@@ -724,17 +745,17 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                 <div style={{ 
                   display: 'flex', 
                   justifyContent: 'space-between', 
-                  marginTop: '30px',
-                  gap: '20px'
+                  marginTop: isMobile ? '20px' : '30px',
+                  gap: isMobile ? '10px' : '20px'
                 }}>
                   <Button 
                     onClick={handlePrev}
                     disabled={currentQuestionIndex === 0}
                     style={{
-                      width: '130px',
-                      height: '45px',
+                      width: isMobile ? '100px' : '130px',
+                      height: isMobile ? '40px' : '45px',
                       borderRadius: '10px',
-                      fontSize: '16px',
+                      fontSize: isMobile ? '14px' : '16px',
                       fontWeight: '500',
                       borderWidth: '1px',
                       boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)'
@@ -749,10 +770,10 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                         onClick={handleSubmit}
                         loading={submitting}
                         style={{ 
-                          width: '130px',
-                          height: '45px',
+                          width: isMobile ? '100px' : '130px',
+                          height: isMobile ? '40px' : '45px',
                           borderRadius: '10px',
-                          fontSize: '16px',
+                          fontSize: isMobile ? '14px' : '16px',
                           fontWeight: '500',
                           background: 'linear-gradient(to right, #1890ff, #096dd9)',
                           border: 'none',
@@ -766,10 +787,10 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                         type="primary"
                         onClick={handleNext}
                         style={{ 
-                          width: '130px',
-                          height: '45px',
+                          width: isMobile ? '100px' : '130px',
+                          height: isMobile ? '40px' : '45px',
                           borderRadius: '10px',
-                          fontSize: '16px',
+                          fontSize: isMobile ? '14px' : '16px',
                           fontWeight: '500',
                           background: 'linear-gradient(to right, #1890ff, #096dd9)',
                           border: 'none',
