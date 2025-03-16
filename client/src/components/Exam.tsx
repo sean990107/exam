@@ -652,7 +652,7 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                                 ? 'translateY(-2px)'
                                 : 'none',
                               width: '100%',
-                              lineHeight: '40px'
+                              lineHeight: '32px'
                             }}
                           >
                             <span style={{ 
@@ -661,12 +661,12 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                               width: '36px',
                               display: 'inline-block',
                               fontSize: '16px',
-                              height: '40px',
-                              lineHeight: '40px'
+                              height: '32px',
+                              lineHeight: '32px'
                             }}>
                               {String.fromCharCode(65 + index)}.
                             </span> 
-                            <span style={{ fontSize: '16px', color: '#475569', height: '40px', lineHeight: '40px' }}>{option}</span>
+                            <span style={{ fontSize: '16px', color: '#475569', height: '32px', lineHeight: '32px' }}>{option}</span>
                           </Radio>
                         ))}
                       </Radio.Group>
@@ -699,7 +699,7 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                               transform: (answers[questions[currentQuestionIndex].id] as string[] || []).includes(String.fromCharCode(65 + index))
                                 ? 'translateY(-2px)'
                                 : 'none',
-                              lineHeight: '40px'
+                              lineHeight: '32px'
                             }}
                           >
                             <span style={{
@@ -708,12 +708,12 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                               width: '36px',
                               display: 'inline-block',
                               fontSize: '16px',
-                              height: '40px',
-                              lineHeight: '40px'
+                              height: '32px',
+                              lineHeight: '32px'
                             }}>
                               {String.fromCharCode(65 + index)}.
                             </span>
-                            <span style={{ fontSize: '16px', color: '#475569', height: '40px', lineHeight: '40px' }}>{option}</span>
+                            <span style={{ fontSize: '16px', color: '#475569', height: '32px', lineHeight: '32px' }}>{option}</span>
                           </Checkbox>
                         ))}
                       </Checkbox.Group>
