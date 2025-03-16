@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // 根据环境变量配置API基础URL
 const baseURL = process.env.NODE_ENV === 'production'
-  ? 'https://your-backend-url.up.railway.app' // 部署后替换为实际的后端URL
+  ? '' // 使用相对路径，在同一域名下访问API
   : 'http://localhost:8000';
 
 // 创建 axios 实例
