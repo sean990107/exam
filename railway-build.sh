@@ -43,6 +43,9 @@ echo "客户端目录内容："
 ls -la
 npm install
 echo "构建客户端..."
+
+# 确保CI=false，避免将警告视为错误
+export CI=false
 export NODE_OPTIONS=--max-old-space-size=1024
 npx react-scripts build || npm run build
 cd ..
