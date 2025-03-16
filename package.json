@@ -12,7 +12,7 @@
     "install-all": "npm install && cd client && npm install --production=false && cd ../server && npm install --production=false",
     "build:client": "cd client && npm run build",
     "build:server": "cd server && npm run build",
-    "build": "npm run build:client && npm run build:server && mkdir -p server/dist/public && cp -r client/build/* server/dist/public/",
+    "build": "npm run build:client && npm run build:server && node build-script.js",
     "start:prod": "cd server && node dist/index.js",
     "start": "cd server && node dist/index.js"
   },
@@ -26,6 +26,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "cross-env": "^7.0.3"
   }
 } 
