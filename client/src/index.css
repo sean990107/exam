@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+:root {
+  --primary-color: #007AFF;
+  --success-color: #34C759;
+  --warning-color: #FF9500;
+  --error-color: #FF3B30;
+  --heading-color: #1C1C1E;
+  --text-color: #3A3A3C;
+  --text-color-secondary: #8E8E93;
+  --border-radius: 12px;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F2F2F7;
+  color: var(--text-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.ant-card {
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.ant-card-head {
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.ant-card-head-title {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.ant-btn {
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ant-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+}
+
+.ant-tag {
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.ant-statistic-title {
+  font-size: 14px;
+  color: var(--text-color-secondary);
+}
+
+.ant-statistic-content {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.question-card {
+  margin-bottom: 16px;
+  transition: all 0.3s;
+  border: none !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.question-content {
+  padding: 24px !important;
+}
+
+.exam-option {
+  border: 1px solid #E5E5EA !important;
+  background: #FFFFFF !important;
+  border-radius: 12px !important;
+  margin-bottom: 12px !important;
+  transition: all 0.2s ease-in-out !important;
+  padding: 16px !important;
+}
+
+.exam-option:hover {
+  border-color: var(--primary-color) !important;
+  background-color: rgba(0, 122, 255, 0.05) !important;
+  transform: translateY(-1px);
+}
+
+.exam-option.selected {
+  border-color: var(--primary-color) !important;
+  background-color: rgba(0, 122, 255, 0.1) !important;
+}
+
+/* 单选和多选按钮样式 */
+.ant-radio-wrapper,
+.ant-checkbox-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ant-radio,
+.ant-checkbox {
+  top: 0 !important;
+}
+
+.ant-radio + span,
+.ant-checkbox + span {
+  padding: 0 12px !important;
+  flex: 1;
+  font-size: 16px !important;
+  color: var(--text-color) !important;
+}
+
+.exam-progress {
+  padding: 20px !important;
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.2) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.exam-controls {
+  margin-top: 24px;
+  padding: 0 24px 24px;
+}
+
+.ant-btn {
+  height: 44px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.ant-btn-primary {
+  background: var(--primary-color) !important;
+  border: none !important;
+}
+
+.ant-btn-primary:hover {
+  background: #0066D6 !important;
+  transform: translateY(-1px);
+}
+
+.ant-progress-line {
+  margin: 8px 0 !important;
+}
+
+.result-card {
+  background: linear-gradient(135deg, #f6ffed 0%, #e6f7ff 100%);
+}
+
+.dashboard-card {
+  height: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #f6f6f6 100%);
+}
+
+/* 响应式布局 */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .exam-progress {
+    padding: 12px !important;
+    margin: -20px -20px 20px -20px !important;
+    border-radius: 0 !important;
+  }
+  
+  .exam-progress .ant-card {
+    margin-bottom: 12px !important;
+  }
+
+  .exam-progress .ant-statistic-title {
+    font-size: 16px !important;
+  }
+
+  .exam-progress .ant-statistic-content {
+    font-size: 20px !important;
+  }
+  
+  .question-card {
+    margin: 0 -20px !important;
+    border-radius: 0 !important;
+  }
+
+  .exam-option {
+    padding: 12px !important;
+  }
+
+  .ant-radio-wrapper,
+  .ant-checkbox-wrapper {
+    font-size: 14px !important;
+  }
+
+  .ant-btn {
+    padding: 4px 15px !important;
+    height: 36px !important;
+    font-size: 14px !important;
+  }
+
+  .ant-typography {
+    font-size: 14px !important;
+  }
+
+  h4.ant-typography {
+    font-size: 16px !important;
+  }
+
+  .ant-modal {
+    max-width: 90vw !important;
+    margin: 24px !important;
+  }
+  
+  .ant-table {
+    font-size: 14px !important;
+  }
+  
+  .ant-table-cell {
+    padding: 8px !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .question-content {
+    padding: 16px !important;
+  }
+
+  .exam-option {
+    padding: 14px !important;
+  }
+
+  .ant-radio + span,
+  .ant-checkbox + span {
+    font-size: 15px !important;
+  }
+
+  .ant-btn {
+    height: 40px !important;
+    font-size: 15px !important;
+  }
+
+  .exam-progress {
+    padding: 16px !important;
+    margin: 0 0 16px 0 !important;
+  }
+
+  .dashboard-stats .ant-col {
+    width: 100% !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .department-stats .ant-col {
+    width: 100% !important;
+  }
+  
+  .ant-card-head-title {
+    font-size: 16px !important;
+  }
+  
+  .ant-btn {
+    padding: 4px 12px !important;
+    font-size: 14px !important;
+  }
+
+  .exam-progress .ant-col {
+    padding: 0 8px !important;
+  }
+
+  .ant-card-body {
+    padding: 16px !important;
+  }
+
+  .ant-modal {
+    max-width: calc(100vw - 32px) !important;
+    margin: 16px !important;
+  }
+
+  .ant-modal-content {
+    padding: 16px !important;
+  }
+
+  .ant-modal-header {
+    padding: 16px !important;
+  }
+
+  .ant-modal-body {
+    padding: 16px !important;
+    font-size: 14px !important;
+  }
+
+  .ant-modal-footer {
+    padding: 16px !important;
+  }
+
+  .ant-btn {
+    font-size: 14px !important;
+    height: 32px !important;
+    padding: 0 12px !important;
+  }
+}

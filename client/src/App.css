@@ -1,0 +1,759 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.app-layout {
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background: #001529;
+}
+
+.app-header .logo {
+  width: 120px;
+  height: 31px;
+  margin-right: 24px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.app-header .user-info {
+  color: white;
+  margin-left: auto;
+}
+
+.app-sider {
+  background: #fff;
+}
+
+.app-content {
+  background: #fff;
+  padding: 24px;
+  margin: 0;
+  min-height: 280px;
+  border-radius: 4px;
+}
+
+.user-info {
+  color: #666;
+}
+
+/* 适配小屏幕设备 */
+@media (max-width: 576px) {
+  .app-layout {
+    flex-direction: column;
+  }
+  
+  .app-header {
+    padding: 0 12px;
+  }
+  
+  .app-header .logo {
+    width: 80px;
+    margin-right: 12px;
+  }
+  
+  .app-content {
+    padding: 12px;
+  }
+  
+  .ant-card {
+    width: 100% !important;
+  }
+}
+
+/* 考试卡片样式 */
+.exam-card {
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.question-text {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.options-group {
+  margin-bottom: 24px;
+}
+
+.exam-controls {
+  padding: 20px 24px; /* 内边距 */
+  border-top: 1px solid #f0f0f0; /* 顶部边框 */
+}
+
+/* 登录页面样式 */
+.login-form {
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+.login-card {
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.login-card .ant-card-head {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.login-card .ant-card-head-title {
+  position: relative;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.login-card .login-mode-switch {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.login-card .ant-form-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 移动端登录页面适配 */
+@media screen and (max-width: 576px) {
+  .login-card {
+    width: 90%;
+    max-width: 350px;
+  }
+  
+  .login-card .ant-card-head-title {
+    font-size: 16px !important;
+    padding-right: 0 !important;
+    text-align: center;
+  }
+  
+  .login-card .login-mode-switch {
+    position: static;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  
+  .login-card .ant-card-head {
+    min-height: 70px;
+    padding: 0;
+  }
+  
+  .login-card .ant-card-head-wrapper {
+    display: block;
+    text-align: center;
+  }
+  
+  .login-card .login-mode-switch button {
+    font-size: 12px;
+    padding: 0 4px;
+  }
+}
+
+/* 移动端响应式布局 */
+@media (max-width: 768px) {
+  .app-sider {
+    position: absolute;
+    height: 100%;
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .app-sider.collapsed {
+    transform: translateX(0);
+  }
+  
+  .mobile-menu-button {
+    display: block;
+  }
+}
+
+/* 桌面端隐藏移动菜单按钮 */
+@media (min-width: 769px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+/* 移动端全局样式 */
+@media screen and (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 12px !important;
+    line-height: 48px !important;
+    height: 48px !important;
+    text-align: center;
+  }
+
+  .ant-layout-header h3 {
+    font-size: 16px !important;
+    text-align: center;
+  }
+
+  .user-info {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+    text-align: center;
+  }
+
+  .ant-layout-content {
+    margin: 0 !important;
+    padding: 12px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ant-card {
+    margin-bottom: 12px;
+    width: 100% !important;
+  }
+
+  /* 确保所有内容居中 */
+  .question-card {
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  .question-content {
+    padding: 12px !important;
+  }
+
+  .question-text {
+    text-align: center !important;
+    font-size: 14px !important;
+  }
+
+  /* 确保选项文本左对齐但容器居中 */
+  .options-group {
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .exam-option {
+    margin-bottom: 16px;
+    font-size: 14px;
+    padding: 16px 24px;
+    text-align: left !important;
+  }
+
+  /* 确保按钮居中 */
+  .exam-controls {
+    padding: 12px !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ant-form-item {
+    margin-bottom: 12px;
+  }
+
+  .ant-drawer-content-wrapper {
+    width: 200px !important;
+  }
+
+  .ant-drawer-body {
+    padding: 0;
+  }
+
+  .ant-menu-item {
+    height: 48px !important;
+    line-height: 48px !important;
+  }
+}
+
+/* 全局字体大小调整 */
+body {
+  font-size: calc(10px + 1vmin);
+}
+
+/* 考试界面样式 */
+.exam-progress {
+  background: linear-gradient(135deg, #1890ff, #096dd9); /* 进度条背景渐变色 */
+  border-radius: 12px; /* 圆角边框 */
+  padding: 16px; /* 内边距 */
+  margin-bottom: 20px; /* 底部外边距 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+}
+
+.exam-progress .ant-progress {
+  line-height: 1; /* 行高 */
+}
+
+.exam-progress .ant-progress-inner {
+  height: 6px; /* 进度条高度 */
+}
+
+.question-card {
+  border-radius: 16px; /* 问题卡片圆角 */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* 阴影效果 */
+  margin: 0 auto; /* 居中显示 */
+  max-width: 800px; /* 最大宽度 */
+  overflow: hidden; /* 溢出隐藏 */
+}
+
+.question-content {
+  min-height: 300px; /* 最小高度 */
+  padding: 24px; /* 内边距 */
+}
+
+.question-text {
+  font-size: calc(14px + 0.5vmin); /* 响应式字体大小 */
+  margin-bottom: 24px; /* 底部外边距 */
+  line-height: 1.6; /* 行高 */
+}
+
+.options-group {
+  display: flex; /* 弹性布局 */
+  flex-direction: column; /* 纵向排列 */
+  gap: 16px; /* 选项间距 */
+  width: 100%; /* 宽度100% */
+}
+
+/* 选项样式改进 */
+.exam-option-item {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.exam-option-item:hover {
+  border-color: #e6f7ff;
+  background-color: #f5f5f5;
+}
+
+/* 选中项的边框样式 */
+.ant-radio-wrapper-checked.exam-option-item,
+.ant-checkbox-wrapper-checked.exam-option-item {
+  border-color: #1890ff !important;
+  background-color: #e6f7ff !important;
+  box-shadow: 0 0 8px rgba(24, 144, 255, 0.2);
+}
+
+/* 选中项内容样式 */
+.ant-radio-wrapper-checked .exam-option-content,
+.ant-checkbox-wrapper-checked .exam-option-content {
+  color: #1890ff;
+  font-weight: 500;
+}
+
+/* 额外的高亮效果 */
+.ant-radio-checked .ant-radio-inner,
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.exam-option-content {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 确保Radio和Checkbox组件的文本部分和圆圈在同一行 */
+.ant-radio-wrapper > span,
+.ant-checkbox-wrapper > span {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.ant-radio-wrapper .ant-radio,
+.ant-checkbox-wrapper .ant-checkbox {
+  top: 0 !important;
+  margin-right: 8px !important;
+}
+
+.exam-options-group {
+  width: 100%;
+  display: block;
+}
+
+/* 修复移动端样式 */
+@media screen and (max-width: 768px) {
+  .exam-option-item {
+    padding: 8px 12px;
+    margin-bottom: 10px;
+  }
+  
+  .exam-option-content {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  /* 确保在移动端没有双行显示 */
+  .ant-radio-wrapper,
+  .ant-checkbox-wrapper {
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    white-space: normal !important;
+  }
+
+  /* 覆盖之前可能导致问题的样式 */
+  .ant-radio-wrapper span.ant-radio + span,
+  .ant-checkbox-wrapper span.ant-checkbox + span {
+    white-space: normal !important;
+    padding-right: 0 !important;
+    padding-left: 8px !important;
+  }
+}
+
+/* 小屏幕额外优化 */
+@media screen and (max-width: 576px) {
+  .exam-option-item {
+    padding: 8px 10px;
+    margin-bottom: 8px;
+  }
+  
+  .exam-option-content {
+    font-size: 14px;
+  }
+}
+
+/* 修复抽屉菜单在移动端的样式 */
+.ant-drawer .ant-menu-inline {
+  border-right: none;
+}
+
+/* 移除深色模式相关样式 */
+[data-theme='dark'] {
+  /* 移除深色模式样式 */
+}
+
+[data-theme='light'] {
+  /* 保留浅色模式样式 */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --border-color: #f0f0f0;
+  --card-bg: #ffffff;
+}
+
+/* 移除深色模式媒体查询 */
+@media (prefers-color-scheme: dark) {
+  /* 移除深色模式媒体查询样式 */
+}
+
+/* 考试记录表格样式 */
+.exam-results-table .ant-table-thead > tr > th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  text-align: center;
+}
+
+.exam-results-table .ant-table-tbody > tr > td {
+  padding: 12px 8px;
+  text-align: center;
+}
+
+/* 考试结果统计卡片样式 */
+.dashboard-stats .ant-card {
+  transition: all 0.3s;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-stats .ant-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.department-stats .result-card {
+  transition: all 0.3s;
+  border-radius: 8px;
+}
+
+.department-stats .result-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.question-card {
+  margin-bottom: 16px !important;
+}
+
+.question-content {
+  margin-bottom: 12px !important;
+}
+
+.exam-progress {
+  margin-bottom: 16px !important;
+  padding: 12px !important;
+}
+
+.options-group {
+  margin-top: 12px !important;
+}
+
+.ant-radio-wrapper,
+.ant-checkbox-wrapper {
+  margin-bottom: 8px !important;
+}
+
+/* 移动端考试记录表格样式 */
+@media screen and (max-width: 768px) {
+  .exam-results-table .ant-table-thead > tr > th {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+  
+  .exam-results-table .ant-table-tbody > tr > td {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+  
+  .exam-results-table .ant-table-cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .exam-results-table .ant-btn-link {
+    padding: 0 4px;
+    font-size: 12px;
+  }
+  
+  .exam-results-table .ant-pagination {
+    font-size: 12px;
+    margin: 8px 0;
+  }
+  
+  .exam-results-table .ant-pagination-item {
+    min-width: 24px;
+    height: 24px;
+    line-height: 22px;
+  }
+  
+  .exam-results-table .ant-pagination-prev,
+  .exam-results-table .ant-pagination-next,
+  .exam-results-table .ant-pagination-jump-prev,
+  .exam-results-table .ant-pagination-jump-next {
+    min-width: 24px;
+    height: 24px;
+    line-height: 24px;
+  }
+  
+  .exam-results .ant-modal {
+    width: 90% !important;
+    max-width: 350px;
+  }
+  
+  .exam-results .ant-modal-body {
+    padding: 12px;
+  }
+  
+  .exam-results .ant-list-item {
+    padding: 8px 0;
+  }
+  
+  /* 移动端统计卡片样式 */
+  .dashboard-stats .ant-card {
+    margin-bottom: 8px;
+  }
+  
+  .dashboard-stats .ant-statistic-title {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  
+  .dashboard-stats .ant-statistic-content {
+    font-size: 16px;
+  }
+  
+  .department-stats .ant-card {
+    margin-bottom: 8px;
+    height: 100%;
+  }
+  
+  .department-stats .ant-card-head {
+    min-height: 32px;
+    padding: 0 8px;
+  }
+  
+  .department-stats .ant-card-head-title {
+    padding: 6px 0;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .department-stats .ant-card-body {
+    padding: 8px;
+  }
+  
+  .department-stats .ant-statistic-title {
+    font-size: 10px;
+    margin-bottom: 2px;
+  }
+  
+  .department-stats .ant-statistic-content {
+    font-size: 12px;
+  }
+  
+  .department-stats .ant-statistic {
+    margin-bottom: 4px;
+  }
+  
+  /* 移动端详情模态框样式 */
+  .ant-modal-title {
+    font-size: 14px !important;
+  }
+  
+  .ant-modal .ant-statistic-title {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  
+  .ant-modal .ant-statistic-content {
+    font-size: 14px;
+  }
+  
+  .question-card {
+    margin-bottom: 12px !important;
+  }
+  
+  .question-card .ant-card-head {
+    min-height: 36px;
+    padding: 0 12px;
+  }
+  
+  .question-card .ant-card-head-title {
+    padding: 8px 0;
+    font-size: 12px;
+  }
+  
+  .question-card .ant-card-body {
+    padding: 12px;
+    font-size: 12px;
+  }
+  
+  .question-card .ant-tag {
+    font-size: 10px;
+    padding: 0 4px;
+    margin-right: 4px;
+  }
+  
+  /* 移动端表格图标样式 */
+  .exam-results-table .anticon {
+    font-size: 14px;
+    margin-right: 4px;
+  }
+  
+  /* 移动端表格标签样式 */
+  .exam-results-table .ant-tag {
+    font-size: 10px;
+    padding: 0 4px;
+    margin-right: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* 考试结果组件样式 */
+.exam-results-component {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.exam-results-component .ant-card-head {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* 考试记录表格样式 */
+.exam-results-table .ant-table-thead > tr > th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+/* 部门统计卡片样式 */
+.department-stats .result-card {
+  transition: all 0.3s;
+  border-radius: 8px;
+}
+
+.department-stats .result-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 移动端部门统计卡片样式 */
+@media screen and (max-width: 768px) {
+  .department-stats .result-card {
+    background-color: #f5f5f5 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .department-stats .result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .department-stats .result-card .ant-card-head {
+    background-color: rgba(24, 144, 255, 0.1);
+    border-bottom: 1px solid rgba(24, 144, 255, 0.2);
+  }
+  
+  .department-stats .result-card .ant-card-head-title {
+    color: #1890ff;
+  }
+}
