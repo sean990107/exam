@@ -45,7 +45,11 @@ app.use(cors({
 // 配置中间件
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+// 更新静态文件配置，确保正确找到前端文件
+const publicPath = path.join(__dirname, 'public');
+console.log('静态文件目录路径:', publicPath);
+app.use(express.static(publicPath));
 
 // 配置文件上传
 const storage = multer.diskStorage({
@@ -1070,9 +1074,17 @@ app.get('/health', (req: Request, res: Response) => {
   res.json({ status: 'ok' });
 });
 
-// 处理所有前端路由
-app.get('*', (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// 处理所有前端路由，确保React路由能正常工作
+app.get(/^(?!\/api|\/health).*/, (req: Request, res: Response) => {
+  console.log(`接收到前端路由请求: ${req.url}`);
+  // 检查文件是否存在
+  const indexFile = path.join(__dirname, 'public', 'index.html');
+  if (fs.existsSync(indexFile)) {
+    res.sendFile(indexFile);
+  } else {
+    console.error('找不到index.html文件:', indexFile);
+    res.status(404).send('找不到前端文件，请检查构建配置');
+  }
 });
 
 // 连接数据库并启动服务器
