@@ -660,12 +660,13 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                             <span style={{ 
                               fontWeight: 'bold',
                               color: '#1890ff',
-                              width: '36px',
+                              width: '20px',
                               display: 'inline-block',
                               fontSize: isMobile ? '14px' : '16px',
                               height: '32px',
                               lineHeight: '32px',
-                              verticalAlign: 'middle'
+                              verticalAlign: 'middle',
+                              marginLeft: '-5px'
                             }}>
                               {String.fromCharCode(65 + index)}.
                             </span> 
@@ -674,7 +675,8 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                               color: '#475569', 
                               height: '32px', 
                               lineHeight: '32px', 
-                              verticalAlign: 'middle'
+                              verticalAlign: 'middle',
+                              marginLeft: '-5px'
                             }}>
                               {option}
                             </span>
@@ -717,12 +719,13 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                             <span style={{
                               fontWeight: 'bold',
                               color: '#52c41a',
-                              width: '36px',
+                              width: '20px',
                               display: 'inline-block',
                               fontSize: isMobile ? '14px' : '16px',
                               height: '32px',
                               lineHeight: '32px',
-                              verticalAlign: 'middle'
+                              verticalAlign: 'middle',
+                              marginLeft: '-5px'
                             }}>
                               {String.fromCharCode(65 + index)}.
                             </span>
@@ -731,7 +734,8 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                               color: '#475569', 
                               height: '32px', 
                               lineHeight: '32px', 
-                              verticalAlign: 'middle'
+                              verticalAlign: 'middle',
+                              marginLeft: '-5px'
                             }}>
                               {option}
                             </span>
