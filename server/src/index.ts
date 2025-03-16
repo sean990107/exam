@@ -1077,6 +1077,7 @@ app.get('/health', (req: Request, res: Response) => {
 // 处理所有前端路由，确保React路由能正常工作
 app.get(/^(?!\/api|\/health).*/, (req: Request, res: Response) => {
   console.log(`接收到前端路由请求: ${req.url}`);
+  
   // 检查文件是否存在
   const indexFile = path.join(__dirname, 'public', 'index.html');
   if (fs.existsSync(indexFile)) {
@@ -1084,6 +1085,31 @@ app.get(/^(?!\/api|\/health).*/, (req: Request, res: Response) => {
   } else {
     console.error('找不到index.html文件:', indexFile);
     res.status(404).send('找不到前端文件，请检查构建配置');
+  }
+});
+
+// 特殊处理带有域名的错误路径请求
+app.get('*/static/*', (req: Request, res: Response) => {
+  // 移除URL中的域名部分，只保留/static/后面的部分
+  const originalPath = req.path;
+  console.log(`接收到静态文件错误路径请求: ${originalPath}`);
+  
+  // 提取/static/及之后的部分
+  const match = originalPath.match(/\/static\/(.+)/);
+  if (match) {
+    const correctPath = `/static/${match[1]}`;
+    console.log(`尝试重定向到正确路径: ${correctPath}`);
+    
+    // 检查文件是否存在
+    const filePath = path.join(__dirname, 'public', correctPath);
+    if (fs.existsSync(filePath)) {
+      res.sendFile(filePath);
+    } else {
+      res.redirect(correctPath);
+    }
+  } else {
+    // 如果无法提取，返回404
+    res.status(404).send('资源未找到');
   }
 });
 
