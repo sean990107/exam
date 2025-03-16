@@ -12,7 +12,7 @@
     "install-all": "npm install && cd client && npm install --production=false && cd ../server && npm install --production=false",
     "build:client": "node client-build.js",
     "build:server": "node server-build.js",
-    "build": "bash build.sh || sh build.sh",
+    "build": "chmod +x railway-build.sh && (bash railway-build.sh || sh railway-build.sh)",
     "start:prod": "cd server && node dist/index.js",
     "start": "cd server && node dist/index.js"
   },
