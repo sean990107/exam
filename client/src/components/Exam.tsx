@@ -650,7 +650,8 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                                 : '0 1px 3px rgba(0, 0, 0, 0.02)',
                               transform: answers[questions[currentQuestionIndex].id] === String.fromCharCode(65 + index)
                                 ? 'translateY(-2px)'
-                                : 'none'
+                                : 'none',
+                              width: '150%',
                             }}
                           >
                             <span style={{ 
@@ -658,11 +659,11 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                               color: '#1890ff',
                               width: '28px',
                               display: 'inline-block',
-                              fontSize: '16px'
+                              fontSize: '14px'
                             }}>
                               {String.fromCharCode(65 + index)}.
                             </span> 
-                            <span style={{ fontSize: '16px', color: '#475569' }}>{option}</span>
+                            <span style={{ fontSize: '14px', color: '#475569' }}>{option}</span>
                           </Radio>
                         ))}
                       </Radio.Group>
@@ -684,7 +685,7 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                               border: (answers[questions[currentQuestionIndex].id] as string[] || []).includes(String.fromCharCode(65 + index))
                                 ? '3px solid #52c41a'
                                 : '2px solid #e2e8f0',
-                              width: '100%',
+                              width: '150%',
                               transition: 'all 0.3s',
                               backgroundColor: (answers[questions[currentQuestionIndex].id] as string[] || []).includes(String.fromCharCode(65 + index))
                                 ? 'rgba(82, 196, 26, 0.05)'
@@ -702,11 +703,11 @@ const Exam: React.FC<ExamProps> = ({ user }) => {
                               color: '#52c41a',
                               width: '28px',
                               display: 'inline-block',
-                              fontSize: '16px'
+                              fontSize: '14px'
                             }}>
                               {String.fromCharCode(65 + index)}.
                             </span>
-                            <span style={{ fontSize: '16px', color: '#475569' }}>{option}</span>
+                            <span style={{ fontSize: '14px', color: '#475569' }}>{option}</span>
                           </Checkbox>
                         ))}
                       </Checkbox.Group>
