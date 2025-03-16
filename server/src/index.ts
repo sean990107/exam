@@ -619,7 +619,21 @@ app.get('/api/exams', async (req: Request, res: Response) => {
 app.delete('/api/exams/:id', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    await ExamResult.findByIdAndDelete(id);
+    console.log(`尝试删除考试记录，ID: ${id}`);
+    
+    // 检查记录是否存在
+    const existingResult = await ExamResult.findById(id);
+    if (!existingResult) {
+      console.log(`未找到ID为${id}的考试记录`);
+      return res.status(404).json({
+        success: false,
+        message: '未找到考试记录'
+      });
+    }
+    
+    // 执行删除
+    const deleteResult = await ExamResult.findByIdAndDelete(id);
+    console.log(`删除结果:`, deleteResult);
     
     const remainingResults = await ExamResult.countDocuments();
     console.log(`删除考试结果成功，当前共有${remainingResults}条记录`);
@@ -628,11 +642,12 @@ app.delete('/api/exams/:id', async (req: Request, res: Response) => {
       success: true,
       message: '删除成功'
     });
-  } catch (error) {
-    console.error('删除考试结果失败:', error);
+  } catch (error: any) {
+    console.error('删除考试结果失败，错误详情:', error);
     res.status(500).json({
       success: false,
-      message: '删除失败'
+      message: '删除失败',
+      error: error.message
     });
   }
 });

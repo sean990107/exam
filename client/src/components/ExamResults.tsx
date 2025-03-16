@@ -149,11 +149,19 @@ const ExamResults: React.FC<ExamResultsProps> = ({ isAdmin }) => {
   };
 
   const handleDeleteExam = async () => {
-    if (!deletingExamId) return;
+    if (!deletingExamId) {
+      console.log('没有要删除的ID');
+      return;
+    }
+    
+    console.log('准备删除考试记录，ID:', deletingExamId);
     
     try {
       setDeleteLoading(true);
+      console.log('发送删除请求到:', `/api/exams/${deletingExamId}`);
       const response = await api.delete(`/api/exams/${deletingExamId}`);
+      
+      console.log('删除请求响应:', response);
       
       if (response.data && response.data.success) {
         message.success('考试记录删除成功');
@@ -161,13 +169,25 @@ const ExamResults: React.FC<ExamResultsProps> = ({ isAdmin }) => {
         // 重新加载考试结果
         fetchExamResults();
       } else {
-        message.error('删除失败');
+        console.error('删除失败，服务器响应:', response.data);
+        message.error(`删除失败: ${response.data?.message || '未知错误'}`);
       }
-    } catch (error) {
-      console.error('删除考试记录失败:', error);
-      message.error('删除失败');
+    } catch (error: any) {
+      console.error('删除考试记录失败，详细错误:', error);
+      if (error.response) {
+        console.error('服务器响应状态码:', error.response.status);
+        console.error('服务器响应数据:', error.response.data);
+        message.error(`删除失败: ${error.response.data?.message || error.message || '服务器错误'}`);
+      } else if (error.request) {
+        console.error('没有收到响应:', error.request);
+        message.error('删除失败: 服务器没有响应');
+      } else {
+        console.error('请求设置错误:', error.message);
+        message.error(`删除失败: ${error.message}`);
+      }
     } finally {
       setDeleteLoading(false);
+      console.log('删除操作完成');
     }
   };
 
