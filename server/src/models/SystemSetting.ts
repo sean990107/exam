@@ -4,6 +4,7 @@ export interface ISystemSetting extends Document {
   key: string;
   value: string;
   description: string;
+  updatedAt?: Date;
 }
 
 const SystemSettingSchema: Schema = new Schema({
@@ -19,6 +20,10 @@ const SystemSettingSchema: Schema = new Schema({
   description: { 
     type: String, 
     default: '' 
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now
   }
 });
 
