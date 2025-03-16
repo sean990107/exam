@@ -11,7 +11,7 @@ npm install
 echo "安装客户端依赖..."
 cd client
 npm install --production=false
-NODE_OPTIONS=--max-old-space-size=1024 npm run build
+NODE_OPTIONS=--max-old-space-size=1024 npx react-scripts build
 cd ..
 
 # 安装服务器依赖
