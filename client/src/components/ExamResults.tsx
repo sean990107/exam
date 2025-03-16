@@ -10,6 +10,7 @@ const { Title, Text } = Typography;
 
 interface ExamResult {
   id: string;
+  _id?: string;
   userId: string;
   userName: string;
   department: string;
@@ -90,8 +91,13 @@ const ExamResults: React.FC<ExamResultsProps> = ({ isAdmin }) => {
       const response = await api.get('/api/exams');
       
       if (response.data && Array.isArray(response.data)) {
-        setExamResults(response.data);
-        calculateStats(response.data);
+        const formattedResults = response.data.map((result: any) => ({
+          ...result,
+          _id: result._id || result.id
+        }));
+        
+        setExamResults(formattedResults);
+        calculateStats(formattedResults);
       }
     } catch (error) {
       console.error('获取考试结果失败:', error);
@@ -192,6 +198,11 @@ const ExamResults: React.FC<ExamResultsProps> = ({ isAdmin }) => {
   };
 
   const showDeleteConfirm = (id: string) => {
+    console.log('准备删除考试记录，ID:', id);
+    if (!id) {
+      message.error('无效的记录ID');
+      return;
+    }
     setDeletingExamId(id);
     setDeleteModalVisible(true);
   };
@@ -301,7 +312,11 @@ const ExamResults: React.FC<ExamResultsProps> = ({ isAdmin }) => {
             type="link" 
             danger
             icon={<DeleteOutlined />}
-            onClick={() => showDeleteConfirm(record.id)}
+            onClick={() => {
+              const recordId = record._id || record.id;
+              console.log('删除按钮点击，记录:', record, '使用ID:', recordId);
+              showDeleteConfirm(recordId);
+            }}
           />
         </Space>
       ),
